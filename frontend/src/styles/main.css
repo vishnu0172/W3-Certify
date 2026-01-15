@@ -7,7 +7,7 @@
 
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #fff5f0 0%, #ffe8d9 100%);
   min-height: 100vh;
   color: #333;
 }
@@ -28,9 +28,9 @@ body {
 
 /* Navbar */
 .navbar {
-  background-color: #1a237e;
+  background: linear-gradient(135deg, #ff6b35 0%, #ff8c42 100%);
   color: white;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 10px rgba(255, 107, 53, 0.3);
 }
 
 .navbar-container {
@@ -43,8 +43,17 @@ body {
 }
 
 .navbar-logo {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
   text-decoration: none;
   color: white;
+}
+
+.navbar-logo-img {
+  height: 50px;
+  width: auto;
+  object-fit: contain;
 }
 
 .navbar-logo h2 {
@@ -71,23 +80,24 @@ body {
 }
 
 .navbar-link:hover {
-  color: #64b5f6;
+  color: #fff5f0;
+  text-decoration: underline;
 }
 
 .logout-btn {
   padding: 0.5rem 1rem;
-  background-color: #f44336;
+  background-color: #d94a1a;
   border-radius: 5px;
 }
 
 .logout-btn:hover {
-  background-color: #d32f2f;
+  background-color: #b83d15;
   color: white;
 }
 
 /* Footer */
 .footer {
-  background-color: #1a237e;
+  background: linear-gradient(135deg, #ff6b35 0%, #ff8c42 100%);
   color: white;
   padding: 2rem;
   margin-top: auto;
@@ -121,7 +131,7 @@ body {
 }
 
 .auth-card h2 {
-  color: #1a237e;
+  color: #ff6b35;
   margin-bottom: 0.5rem;
   text-align: center;
 }
@@ -161,7 +171,7 @@ body {
 .form-group input:focus,
 .form-group select:focus {
   outline: none;
-  border-color: #667eea;
+  border-color: #ff6b35;
 }
 
 .auth-footer {
@@ -171,7 +181,7 @@ body {
 }
 
 .auth-footer a {
-  color: #667eea;
+  color: #ff6b35;
   text-decoration: none;
   font-weight: 600;
 }
@@ -195,14 +205,14 @@ body {
 }
 
 .btn-primary {
-  background-color: #667eea;
+  background: linear-gradient(135deg, #ff6b35 0%, #ff8c42 100%);
   color: white;
 }
 
 .btn-primary:hover {
-  background-color: #5568d3;
+  background: linear-gradient(135deg, #ff8c42 0%, #ffa661 100%);
   transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+  box-shadow: 0 5px 15px rgba(255, 107, 53, 0.4);
 }
 
 .btn-primary:disabled {
@@ -222,12 +232,12 @@ body {
 }
 
 .btn-download {
-  background-color: #4caf50;
+  background: linear-gradient(135deg, #ff6b35 0%, #ff8c42 100%);
   color: white;
 }
 
 .btn-download:hover {
-  background-color: #45a049;
+  background: linear-gradient(135deg, #ff8c42 0%, #ffa661 100%);
 }
 
 .btn-view {
@@ -242,12 +252,12 @@ body {
 }
 
 .btn-approve {
-  background-color: #4caf50;
+  background: linear-gradient(135deg, #4caf50 0%, #66bb6a 100%);
   color: white;
 }
 
 .btn-approve:hover {
-  background-color: #45a049;
+  background: linear-gradient(135deg, #66bb6a 0%, #81c784 100%);
 }
 
 .btn-reject {
@@ -260,14 +270,14 @@ body {
 }
 
 .btn-view-doc {
-  background-color: #ff9800;
+  background: linear-gradient(135deg, #ff6b35 0%, #ff8c42 100%);
   color: white;
   padding: 0.5rem 1rem;
   font-size: 0.9rem;
 }
 
 .btn-view-doc:hover {
-  background-color: #f57c00;
+  background: linear-gradient(135deg, #ff8c42 0%, #ffa661 100%);
 }
 
 /* Messages */
@@ -314,7 +324,7 @@ body {
 }
 
 .form-card h2 {
-  color: #1a237e;
+  color: #ff6b35;
   margin-bottom: 0.5rem;
 }
 
@@ -350,7 +360,7 @@ body {
 }
 
 .status-header h2 {
-  color: #1a237e;
+  color: #ff6b35;
 }
 
 .no-applications {
@@ -393,7 +403,7 @@ body {
 }
 
 .application-header h3 {
-  color: #1a237e;
+  color: #ff6b35;
   margin: 0;
 }
 
@@ -405,8 +415,8 @@ body {
 }
 
 .status-pending {
-  background-color: #fff3e0;
-  color: #f57c00;
+  background-color: #fff5f0;
+  color: #ff6b35;
 }
 
 .status-approved {
@@ -425,7 +435,7 @@ body {
 }
 
 .application-details strong {
-  color: #1a237e;
+  color: #ff6b35;
 }
 
 .rejected-message,
@@ -442,8 +452,8 @@ body {
 }
 
 .pending-message {
-  background-color: #fff3e0;
-  color: #f57c00;
+  background-color: #fff5f0;
+  color: #ff6b35;
 }
 
 /* Admin Dashboard */
@@ -455,7 +465,7 @@ body {
 }
 
 .admin-header h2 {
-  color: #1a237e;
+  color: #ff6b35;
   margin-bottom: 1.5rem;
 }
 
@@ -467,12 +477,12 @@ body {
 }
 
 .stat-card {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #ff6b35 0%, #ff8c42 100%);
   color: white;
   padding: 1.5rem;
   border-radius: 8px;
   text-align: center;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 6px rgba(255, 107, 53, 0.2);
 }
 
 .stat-card h3 {
@@ -517,7 +527,7 @@ body {
 }
 
 .applications-table th {
-  background-color: #1a237e;
+  background: linear-gradient(135deg, #ff6b35 0%, #ff8c42 100%);
   color: white;
   padding: 1rem;
   text-align: left;
@@ -570,7 +580,7 @@ body {
   align-items: center;
   padding: 1.5rem;
   border-bottom: 2px solid #e0e0e0;
-  background-color: #1a237e;
+  background: linear-gradient(135deg, #ff6b35 0%, #ff8c42 100%);
   color: white;
   border-radius: 10px 10px 0 0;
 }
@@ -601,9 +611,9 @@ body {
 }
 
 .detail-section h4 {
-  color: #1a237e;
+  color: #ff6b35;
   margin-bottom: 1rem;
-  border-bottom: 2px solid #e0e0e0;
+  border-bottom: 2px solid #ffe8d9;
   padding-bottom: 0.5rem;
 }
 
@@ -650,7 +660,7 @@ body {
 }
 
 .certificate-card h2 {
-  color: #1a237e;
+  color: #ff6b35;
   margin-bottom: 2rem;
 }
 
@@ -668,7 +678,7 @@ body {
 }
 
 .certificate-info strong {
-  color: #1a237e;
+  color: #ff6b35;
 }
 
 .error-container {

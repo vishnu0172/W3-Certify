@@ -1,0 +1,235 @@
+╔════════════════════════════════════════════════════════════════════╗
+║                                                                    ║
+║              📊 DATABASE & APPLICATION LOGS GUIDE                  ║
+║                                                                    ║
+╚════════════════════════════════════════════════════════════════════╝
+
+═══════════════════════════════════════════════════════════════════
+
+🗄️ MONGODB LOGS
+═══════════════════════════════════════════════════════════════════
+
+1. View MongoDB Service Logs:
+   ──────────────────────────
+   sudo journalctl -u mongod -f
+   
+   # View last 50 lines
+   sudo journalctl -u mongod -n 50
+   
+   # View logs since today
+   sudo journalctl -u mongod --since today
+
+2. MongoDB Log File:
+   ─────────────────
+   # View log file
+   sudo tail -f /var/log/mongodb/mongod.log
+   
+   # View last 100 lines
+   sudo tail -n 100 /var/log/mongodb/mongod.log
+   
+   # Search for errors
+   sudo grep -i error /var/log/mongodb/mongod.log
+   
+   # Search for warnings
+   sudo grep -i warning /var/log/mongodb/mongod.log
+
+3. MongoDB Status:
+   ───────────────
+   sudo systemctl status mongod
+
+═══════════════════════════════════════════════════════════════════
+
+🖥️ BACKEND SERVER LOGS
+═══════════════════════════════════════════════════════════════════
+
+1. Console Output (If running in terminal):
+   ────────────────────────────────────────
+   # The terminal where you ran "npm start" shows live logs
+   
+2. If Backend Running in Background:
+   ─────────────────────────────────
+   # Check the log file we created
+   tail -f /tmp/backend.log
+   
+   # View all logs
+   cat /tmp/backend.log
+   
+   # View last 50 lines
+   tail -n 50 /tmp/backend.log
+
+3. Find Backend Process:
+   ─────────────────────
+   ps aux | grep "node.*server.js"
+   
+   # Kill if needed
+   pkill -f "node.*server.js"
+
+═══════════════════════════════════════════════════════════════════
+
+🌐 FRONTEND LOGS
+═══════════════════════════════════════════════════════════════════
+
+1. Browser Console (Best for frontend):
+   ────────────────────────────────────
+   - Press F12 or Ctrl+Shift+I
+   - Go to "Console" tab
+   - See all frontend errors and logs
+
+2. Network Tab (API calls):
+   ────────────────────────
+   - Press F12
+   - Go to "Network" tab
+   - See all API requests/responses
+   - Check status codes and response data
+
+3. Terminal Output:
+   ────────────────
+   # The terminal where you ran "npm start" shows build logs
+
+═══════════════════════════════════════════════════════════════════
+
+🔍 DATABASE QUERIES & DATA
+═══════════════════════════════════════════════════════════════════
+
+1. MongoDB Shell (View actual data):
+   ─────────────────────────────────
+   # Connect to MongoDB
+   mongosh
+   
+   # Use your database
+   use w3certify
+   
+   # Show all collections
+   show collections
+   
+   # View users
+   db.users.find().pretty()
+   
+   # View applications
+   db.applications.find().pretty()
+   
+   # View certificates
+   db.certificates.find().pretty()
+   
+   # Count documents
+   db.users.countDocuments()
+   db.applications.countDocuments()
+   
+   # Find specific user
+   db.users.findOne({ email: "admin@w3app.com" })
+   
+   # View recent applications
+   db.applications.find().sort({ createdAt: -1 }).limit(5).pretty()
+   
+   # Exit MongoDB shell
+   exit
+
+2. MongoDB Compass (GUI Tool):
+   ───────────────────────────
+   - Download from: https://www.mongodb.com/products/compass
+   - Connect to: mongodb://localhost:27017
+   - Visual interface to browse data
+
+═══════════════════════════════════════════════════════════════════
+
+📝 APPLICATION-SPECIFIC LOGS
+═══════════════════════════════════════════════════════════════════
+
+1. Check Application Errors:
+   ────────────────────────
+   # Backend errors
+   tail -f /tmp/backend.log | grep -i error
+   
+   # MongoDB errors
+   sudo tail -f /var/log/mongodb/mongod.log | grep -i error
+
+2. Monitor in Real-Time:
+   ─────────────────────
+   # Watch backend logs
+   watch -n 1 'tail -20 /tmp/backend.log'
+   
+   # Watch MongoDB logs
+   sudo watch -n 1 'tail -20 /var/log/mongodb/mongod.log'
+
+═══════════════════════════════════════════════════════════════════
+
+🔧 DEBUGGING COMMANDS
+═══════════════════════════════════════════════════════════════════
+
+1. Check if MongoDB is Running:
+   ────────────────────────────
+   sudo systemctl status mongod
+   sudo lsof -i :27017
+
+2. Check if Backend is Running:
+   ────────────────────────────
+   sudo lsof -i :5000
+   ps aux | grep node
+
+3. Check if Frontend is Running:
+   ─────────────────────────────
+   sudo lsof -i :3000
+
+4. View Database Stats:
+   ────────────────────
+   mongosh --eval "db.stats()" w3certify
+
+5. Test Backend API:
+   ─────────────────
+   # Test signup
+   curl -X POST http://localhost:5000/auth/signup \
+     -H "Content-Type: application/json" \
+     -d '{"name":"Test","email":"test@test.com","password":"test123"}'
+   
+   # Test login
+   curl -X POST http://localhost:5000/auth/login \
+     -H "Content-Type: application/json" \
+     -d '{"email":"admin@w3app.com","password":"admin123"}'
+
+═══════════════════════════════════════════════════════════════════
+
+📊 QUICK REFERENCE COMMANDS
+═══════════════════════════════════════════════════════════════════
+
+View MongoDB Logs:        sudo tail -f /var/log/mongodb/mongod.log
+View Backend Logs:         tail -f /tmp/backend.log
+MongoDB Shell:             mongosh
+Check MongoDB Status:      sudo systemctl status mongod
+Restart MongoDB:           sudo systemctl restart mongod
+View Database Data:        mongosh → use w3certify → db.users.find()
+
+═══════════════════════════════════════════════════════════════════
+
+🆘 TROUBLESHOOTING LOG ISSUES
+═══════════════════════════════════════════════════════════════════
+
+If logs are not showing:
+  1. Check if service is running
+  2. Verify log file permissions
+  3. Ensure disk space is available: df -h
+  4. Check log rotation settings
+
+If MongoDB logs are empty:
+  1. Check: /etc/mongod.conf for log path
+  2. Restart: sudo systemctl restart mongod
+  3. Verify permissions: ls -l /var/log/mongodb/
+
+═══════════════════════════════════════════════════════════════════
+
+💡 PRO TIPS
+═══════════════════════════════════════════════════════════════════
+
+1. Keep logs open in separate terminals for real-time monitoring
+2. Use grep to filter specific errors or events
+3. Browser DevTools Network tab is essential for debugging API calls
+4. MongoDB Compass provides better visualization than command line
+5. Check both backend AND MongoDB logs when debugging issues
+
+═══════════════════════════════════════════════════════════════════
+
+Your W3certify Application Logs are located at:
+- MongoDB: /var/log/mongodb/mongod.log
+- Backend: /tmp/backend.log or console output
+- Frontend: Browser console (F12)
+
+═══════════════════════════════════════════════════════════════════

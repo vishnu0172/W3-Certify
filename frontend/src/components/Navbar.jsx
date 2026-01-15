@@ -9,6 +9,7 @@ const Navbar = () => {
     <nav className="navbar">
       <div className="navbar-container">
         <Link to="/" className="navbar-logo">
+          <img src="/w3-logo.jpg" alt="W3 Logo" className="navbar-logo-img" />
           <h2>W3 App Developers</h2>
         </Link>
         <ul className="navbar-menu">
