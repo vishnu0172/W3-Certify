@@ -169,7 +169,7 @@ const AdminDashboard = () => {
                   <div className="document-item">
                     <p><strong>Student ID Card:</strong></p>
                     <a 
-                      href={`${process.env.REACT_APP_API_URL || "http://localhost:5000"}/${selectedApp.studentIdCard}`}
+                      href={`${process.env.REACT_APP_API_URL || "https://w3certify-api.onrender.com"}/${selectedApp.studentIdCard}`}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="btn btn-view-doc"
@@ -180,7 +180,7 @@ const AdminDashboard = () => {
                   <div className="document-item">
                     <p><strong>Payment Proof:</strong></p>
                     <a 
-                      href={`${process.env.REACT_APP_API_URL || "http://localhost:5000"}/${selectedApp.paymentProof}`}
+                      href={`${process.env.REACT_APP_API_URL || "https://w3certify-api.onrender.com"}/${selectedApp.paymentProof}`}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="btn btn-view-doc"
